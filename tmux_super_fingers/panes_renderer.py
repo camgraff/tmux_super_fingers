@@ -1,4 +1,4 @@
-from typing import List, Optional, Generator
+from typing import List, Optional, Generator, Tuple
 from copy import deepcopy
 from curses import ascii
 
@@ -103,7 +103,7 @@ class PanesRenderer:
                 self.ui.render_line(line_top, hint_left, hint, bg | self.ui.BOLD)
 
 
-def _get_highlights(pane: Pane) -> Generator[tuple[int, int, Highlight], None, None]:
+def _get_highlights(pane: Pane) -> Generator[Tuple[int, int, Highlight], None, None]:
     running_character_total = 0
 
     for ln, line in enumerate(pane.text.split('\n')):
